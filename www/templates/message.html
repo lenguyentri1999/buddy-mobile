@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<body>
+
+ <div id="E">
+   <!-- DISPLAY THE PICTURE OF THE PERSON YOU ARE CHATTING WITH -->
+
+   <div id="back">
+     <i ui-sref="list" class="fa fa-chevron-left" aria-hidden="true"></i>
+   </div>
+   <div id="E0" style="margin-top: -100px">
+      <h4> {{buddyName}} </h4>
+      <img ng-src="{{buddyPictureUrl}}" />
+   </div>
+
+
+    <!-- DISPLAY TEXT MESSAGES FROM PAST CONVERSAION -->
+    <div id="E1">
+      <div id="Ewrapper">
+        <div id="E1A" ng-style="setColor(message)" ng-repeat="message in convo">
+          {{message.text}}
+          <div id="E1time">
+            {{message.formattedTime}}
+          </div>
+        </div>
+        <div id="bottom"></div>
+      </div>
+
+    <!-- USER CAN INPUT TEXT TO SEND TO THE OTHER USER -->
+      <div id="E1B">
+        <form>
+          <input type="text" placeholder="Type here" ng-model="newmessage.text" />
+          <p ng-model="newmessage.sender"></p>
+          <p ng-model="newmessage.receiver"></p>
+          <button ng-click="insert(newmessage)"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </div>
+</div>
+</body>
